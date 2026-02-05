@@ -56,3 +56,8 @@ def update_student(request,id):
        stu_obj.sem=request.POST.get('sem')
        return redirect('view_students')
    return render(request,'update_student.html',{'student':stu_obj})
+
+def delete_student(request,id):
+   stu_obj=Student.objects.get(id=id)
+   stu_obj.delete()
+   return redirect('view_student')

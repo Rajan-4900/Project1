@@ -21,6 +21,7 @@
             <th>Branch</th>
             <th>Sem</th>
             <th>Update</th>
+            <th>delete</th>
         </tr>
         {% for student in students %}
         <tr>
@@ -33,6 +34,7 @@
             <td>{{ student.branch }}</td>
             <td>{{ student.sem }}</td>
             <td><a href="{% url 'update_student' student.id %}">Update</a></td>
+            <td><a href="{% url 'delete_student' student.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>

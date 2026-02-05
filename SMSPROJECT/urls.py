@@ -23,5 +23,5 @@ from .views import name
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("home/",name,name='name'),
-    path("student/", include('student.urls')), # student Folder Registerd Here
+    path("", include('student.urls')), # student Folder Registerd Here
 ]

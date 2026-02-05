@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{% static 'stdstyle.css' %}">
+</head>
+<body>
+    <h1>Student Details</h1>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>USN</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>College</th>
+            <th>Degree</th>
+            <th>Branch</th>
+            <th>Sem</th>
+            <th>Update</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.usn }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.phone }}</td>
+            <td>{{ student.college }}</td>
+            <td>{{ student.degree }}</td>
+            <td>{{ student.branch }}</td>
+            <td>{{ student.sem }}</td>
+            <td><a href="{% url 'update_student' student.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

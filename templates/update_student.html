@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student Registeration Form</title>
+    <title>Update Student</title>
     <link rel="stylesheet" href="{% static 'stdstyle.css' %}">
 </head>
 
@@ -21,31 +21,31 @@
     <div class="form-wrapper">
         <form method="post">
             {% csrf_token %}
-            <h1>Student Registration Form</h1>
+            <h1>Update Student</h1>
     
             <label>Name:</label><br>
-            <input type="text" id="name" name="sname"><br><br>
+            <input type="text" id="name" name="sname" value="{{ student.name}}"><br><br>
     
             <label>USN:</label><br>
-            <input type="text" id="usn" name="usn"><br><br>
+            <input type="text" id="usn" name="usn" value="{{ student.usn }}"><br><br>
     
             <label>Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
+            <input type="email" id="email" name="email" value="{{ student.email }}"><br><br>
     
             <label>Phone:</label><br>
-            <input type="number" id="mob" name="mob"><br><br>
+            <input type="number" id="mob" name="mob" value="{{ student.mob }}"><br><br>
     
             <label>College:</label><br>
-            <input type="text" id="college" name="college"><br><br>
+            <input type="text" id="college" name="college" value="{{ student.college }}"><br><br>
     
             <label>Degree:</label><br>
-            <input type="text" id="degree" name="degree"><br><br>
+            <input type="text" id="degree" name="degree" value="{{ student.degree }}"><br><br>
     
             <label>Sem:</label><br>
-            <input type="number" id="sem" name="sem"><br><br>
+            <input type="number" id="sem" name="sem" value="{{ student.sem }}"><br><br>
     
             <label>Branch:</label><br>
-            <input type="text" id="branch" name="branch"><br><br>
+            <input type="text" id="branch" name="branch" value="{{ student.branch }}"><br><br>
     
             <input type="submit" value="Submit">
         </form>

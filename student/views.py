@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Student
 
 def index(request):
@@ -36,4 +36,23 @@ def student(request):
         # print("college :",college)
         # print("degree :",degree)
         # print("sem :",sem)
+        return redirect('view_student')
  return render(request,'student.html')
+
+def view_student(request):
+   stu_obj=Student.objects.all()
+   return render(request, 'view_student.html',{'students':stu_obj})
+
+def update_student(request,id):
+   stu_obj=Student.objects.get(id=id) #fetching the student object based on the provided id
+   if request.method=='POST':
+       stu_obj.name=request.POST.get('sname')
+       stu_obj.usn=request.POST.get('usn')
+       stu_obj.email=request.POST.get('email')
+       stu_obj.phone=request.POST.get('mob')
+       stu_obj.college=request.POST.get('college')
+       stu_obj.degree=request.POST.get('degree')
+       stu_obj.branch=request.POST.get('branch')
+       stu_obj.sem=request.POST.get('sem')
+       return redirect('view_students')
+   return render(request,'update_student.html',{'student':stu_obj})
